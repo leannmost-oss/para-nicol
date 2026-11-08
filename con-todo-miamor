@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#160711">
+<title>Para mi niña ♡</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: white;
+    font-family: Georgia, serif;
+    text-align: center;
+    overflow-x: hidden;
+    background: radial-gradient(
+        ellipse at top,
+        #8d1454,
+        #350d2b 48%,
+        #080509
+    );
+}
+
+#stars {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 13px 4px #ff66b4;
+    animation: sparkle 3s infinite ease-in-out;
+}
+
+@keyframes sparkle {
+    50% {
+        opacity: .2;
+        transform: scale(.5);
+    }
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+    margin: auto;
+    padding: 35px 17px 60px;
+}
+
+.small-title {
+    font: 11px Arial;
+    letter-spacing: 4px;
+    color: #ffc5df;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: clamp(40px, 10vw, 62px);
+    font-weight: normal;
+    margin: 12px 0;
+    text-shadow: 0 0 22px #ff4e9e;
+}
+
+.subtitle {
+    color: #f7c6dc;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* CAJITA */
+
+.scene {
+    height: 310px;
+    display: grid;
+    place-items: center;
+    perspective: 1000px;
+    position: relative;
+}
+
+.gift {
+    position: relative;
+    width: min(76vw, 310px);
+    height: 220px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transition: transform .8s;
+}
+
+.box {
+    position: absolute;
+    bottom: 0;
+    left: 3%;
+    width: 94%;
+    height: 150px;
+    border: 3px solid #f8a5cb;
+    border-radius: 8px 8px 17px 17px;
+    background: linear-gradient(135deg, #ffe5f1, #ed82b6);
+    box-shadow: 0 22px 40px #0008;
+}
+
+.box::before {
+    content: "";
+    position: absolute;
+    left: 43%;
+    height: 100%;
+    width: 14%;
+    background: #d51d76;
+}
+
+.lid {
+    position: absolute;
+    z-index: 4;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: 67px;
+    border: 3px solid #f7a5ca;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #fff0f7, #f6b6d4);
+    transform-origin: top center;
+    transition: transform 1.2s cubic-bezier(.2,.8,.2,1);
+}
+
+.lid::before {
+    content: "";
+    position: absolute;
+    left: 43%;
+    top: 0;
+    height: 100%;
+    width: 14%;
+    background: #d51d76;
+}
+
+.ribbon {
+    position: absolute;
+    z-index: 5;
+    top: 5px;
+    left: 37%;
+    width: 26%;
+    height: 43px;
+}
+
+.ribbon::before,
+.ribbon::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 48%;
+    height: 27px;
+    border: 7px solid #d51d76;
+    border-radius: 80% 80% 15% 80%;
+}
+
+.ribbon::before {
+    left: -5px;
+    transform: rotate(20deg);
+}
+
+.ribbon::after {
+    right: -5px;
+    transform: scaleX(-1) rotate(20deg);
+}
+
+.knot {
+    position: absolute;
+    z-index: 6;
+    top: 12px;
+    left: 46%;
+    width: 26px;
+    height: 22px;
+    background: #d51d76;
+    border-radius: 50%;
+}
+
+.label {
+    position: absolute;
+    top: 105px;
+    left: 0;
+    right: 0;
+    color: #a50d57;
+    font: bold 17px Arial;
+}
+
+.label small {
+    display: block;
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+.gift.open .lid {
+    transform: rotateX(155deg) translateY(-9px);
+}
+
+.gift.open {
+    transform: translateY(8px);
+}
+
+/* DECORACIONES */
+
+.decor {
+    position: absolute;
+    font-size: 43px;
+    color: #ff8fc5;
+    animation: float 4s infinite ease-in-out;
+    text-shadow: 0 0 15px #ff4e9e;
+}
+
+.d1 { top: 25px; left: 5%; }
+.d2 { top: 50px; right: 5%; animation-delay: -2s; }
+.d3 { bottom: 10px; left: 8%; animation-delay: -1s; }
+.d4 { bottom: 15px; right: 8%; animation-delay: -3s; }
+
+@keyframes float {
+    50% {
+        transform: translateY(-13px) rotate(8deg);
+    }
+}
+
+/* HELLO KITTY DECORATIVA */
+
+.kitty {
+    position: relative;
+    display: inline-block;
+    width: 65px;
+    height: 55px;
+    margin: 18px;
+    background: white;
+    border: 3px solid #30101e;
+    border-radius: 45% 45% 40% 40%;
+}
+
+.kitty::before,
+.kitty::after {
+    content: "";
+    position: absolute;
+    top: -12px;
+    width: 22px;
+    height: 25px;
+    background: white;
+    border: 3px solid #30101e;
+    border-radius: 5px 15px 2px 10px;
+    z-index: -1;
+}
+
+.kitty::before {
+    left: 0;
+    transform: rotate(-20deg);
+}
+
+.kitty::after {
+    right: 0;
+    transform: rotate(20deg);
+}
+
+.bow {
+    position: absolute;
+    top: -19px;
+    right: -8px;
+    color: #ed3b8d;
+    font-size: 31px;
+    z-index: 2;
+}
+
+.eyes {
+    position: absolute;
+    top: 21px;
+    left: 12px;
+    color: #25101b;
+    font-size: 13px;
+    letter-spacing: 12px;
+}
+
+.nose {
+    position: absolute;
+    top: 31px;
+    left: 27px;
+    width: 8px;
+    height: 6px;
+    border-radius: 50%;
+    background: #f6c832;
+}
+
+/* CARTA */
+
+.letter {
+    display: none;
+    max-width: 550px;
+    margin: 20px auto;
+    padding: 25px 22px;
+    color: #351327;
+    text-align: left;
+    line-height: 1.8;
+    background: linear-gradient(145deg, #fff8fc, #ffd8e9);
+    border: 1px solid white;
+    border-radius: 18px;
+    box-shadow: 0 18px 48px #0009;
+    animation: appear .9s ease;
+}
+
+.letter.show {
+    display: block;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.letter h2 {
+    text-align: center;
+    color: #a51d61;
+    font-weight: normal;
+    font-size: 24px;
+}
+
+.dedication {
+    text-align: center;
+    color: #b54b7c;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.letter p {
+    margin-bottom: 15px;
+}
+
+.closing {
+    text-align: center;
+    color: #a51d61;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* BOTONES */
+
+button {
+    border: 1px solid #ffb6d5;
+    border-radius: 30px;
+    padding: 12px 19px;
+    background: #f34e9b;
+    color: white;
+    font: 14px Arial;
+    cursor: pointer;
+    margin: 6px;
+}
+
+button:active {
+    transform: scale(.96);
+}
+
+#secret {
+    display: none;
+    color: #ffe0ef;
+    line-height: 1.7;
+    margin: 20px;
+}
+
+.note {
+    font: 11px Arial;
+    color: #e9b9d2;
+}
+
+</style>
+</head>
+  <body>
+
+<div id="stars"></div>
+
+<main>
+
+<div class="small-title">
+Un detalle hecho pensando en ti
+</div>
+
+<h1>Para mi niña</h1>
+
+<p class="subtitle">
+Hay regalos que guardan cosas bonitas…<br>
+y este guarda unas palabras para ti.
+</p>
+
+<div class="decor d1">♡</div>
+<div class="decor d2">✧</div>
+<div class="decor d3">♡</div>
+<div class="decor d4">✧</div>
+
+<div class="kitty">
+    <span class="bow">🎀</span>
+    <span class="eyes">•　•</span>
+    <span class="nose"></span>
+</div>
+
+<section class="scene">
+
+<div class="gift" id="gift" role="button" tabindex="0">
+
+    <div class="box">
+        <div class="label">
+            Para mi princesa
+            <small>Un pequeño universo de cariño</small>
+        </div>
+    </div>
+
+    <div class="lid"></div>
+    <div class="ribbon"></div>
+    <div class="knot"></div>
+
+</div>
+
+</section>
+
+<p id="hint" class="note">
+Toca la cajita para abrir tu sorpresa
+</p>
+
+<section class="letter" id="letter">
+
+<h2>Una plegaria a tu mirada</h2>
+
+<div class="dedication">
+Para Nicol, mi niña.
+</div>
+
+<p>
+No sé si los cielos escuchan las plegarias ni si las estrellas conceden deseos, pero, si alguna vez tuviera que elevar una petición al universo, pediría que nunca se apague la luz que habita en tus ojos.
+</p>
+
+<p>
+Hay algo en tu mirada que no consigo nombrar. Algo que escapa de las palabras, que no cabe en un dibujo y que ni siquiera el silencio consigue explicar.
+</p>
+
+<p>
+A veces pienso que el universo debió detenerse un instante para crear algo tan bonito. Que quizá reunió un poco de la luz de las estrellas, un fragmento de la noche y todos esos pequeños misterios que existen en el mundo para darles un lugar dentro de tus ojos.
+</p>
+
+<p>
+Y qué fortuna la mía haber podido contemplarlos.
+</p>
+
+<p>
+Si existiera un altar dedicado a las cosas que merecen ser recordadas, dejaría allí cada pensamiento bonito que me has provocado. Encendería una vela por cada sonrisa tuya, guardaría una estrella por cada instante en que me has hecho feliz y escribiría tu nombre en el lugar más cuidado de mis recuerdos.
+</p>
+
+<p>
+No te pediría que fueras eterna, porque hasta las estrellas tienen sus propias despedidas. Tampoco le exigiría al tiempo que se detuviera. Solamente le pediría que fuera amable contigo, que te regalara días hermosos y que nunca te faltaran razones para mirar al mundo con esos ojitos tuyos.
+</p>
+
+<p>
+Y si alguna vez la oscuridad llegara a rodearte, quisiera que recordaras que incluso la noche más profunda conserva estrellas.
+</p>
+
+<p>
+No sé qué nombre darle a esta pequeña devoción que siento por tus detalles, por tu existencia y, especialmente, por esa mirada que se ha convertido en uno de mis misterios favoritos.
+</p>
+
+<p>
+Quizá no sea necesario nombrarla.
+</p>
+
+<p>
+Por ahora, me basta con escribirte estas palabras, guardar un pedacito de lo que siento en esta carta y agradecerle al destino por haber cruzado nuestros caminos.
+</p>
+
+<p>
+<strong>
+Que el universo te cuide, que la luna te acompañe y que tus ojos nunca olviden lo hermosos que son.
+</strong>
+</p>
+
+<p>
+Y si alguna vez mis plegarias tienen destinataria, que siempre encuentren el camino hasta ti.
+</p>
+
+<div class="closing">
+Con cariño, para ti.
+</div>
+
+</section>
+
+<div class="controls">
+    <button id="secretBtn">
+        Descubrir otro secreto
+    </button>
+
+    <button id="musicBtn">
+        ♫ Activar melodía
+    </button>
+</div>
+
+<p id="secret">
+Entre tantas casualidades, coincidir contigo es una de las que más agradezco.
+</p>
+
+<p class="note" id="musicNote">
+Una melodía original hecha para acompañar esta sorpresa.
+</p>
+      <script>
+
+// ESTRELLAS ANIMADAS
+
+const sky = document.getElementById("stars");
+
+for (let i = 0; i < 75; i++) {
+    const star = document.createElement("i");
+
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.animationDelay = Math.random() * 4 + "s";
+
+    sky.appendChild(star);
+}
+
+
+// ABRIR LA CAJITA
+
+const gift = document.getElementById("gift");
+const letter = document.getElementById("letter");
+const hint = document.getElementById("hint");
+
+let opened = false;
+
+function openGift() {
+
+    if (opened) return;
+
+    opened = true;
+
+    gift.classList.add("open");
+    letter.classList.add("show");
+
+    hint.textContent =
+        "Una carta escrita especialmente para ti.";
+
+    setTimeout(() => {
+        letter.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }, 700);
+
+    startMusic();
+}
+
+gift.addEventListener("click", openGift);
+
+gift.addEventListener("keydown", function(e) {
+    if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openGift();
+    }
+});
+
+
+// BOTÓN SORPRESA
+
+document.getElementById("secretBtn")
+.addEventListener("click", function() {
+
+    const secret = document.getElementById("secret");
+
+    if (secret.style.display === "block") {
+        secret.style.display = "none";
+    } else {
+        secret.style.display = "block";
+    }
+
+});
+
+
+// MÚSICA ORIGINAL CON PIANO Y CAMPANITAS
+
+let audioContext;
+let musicTimer;
+let musicPlaying = false;
+
+const notes = {
+    C4: 261.63,
+    G3: 196,
+    D5: 587.33,
+    E5: 659.25,
+    G5: 783.99,
+    A5: 880,
+    B5: 987.77
+};
+
+const melody = [
+    ["E5", 0],
+    ["G5", 0.5],
+    ["B5", 1],
+    ["G5", 1.5],
+    ["A5", 2],
+    ["G5", 2.5],
+    ["E5", 3],
+    ["D5", 3.5],
+    ["E5", 4],
+    ["G5", 4.5],
+    ["A5", 5],
+    ["B5", 6],
+    ["A5", 6.5],
+    ["G5", 7],
+    ["E5", 8],
+    ["D5", 8.5],
+    ["C4", 9],
+    ["E5", 10],
+    ["G5", 11],
+    ["E5", 12]
+];
+
+function playTone(note, time, duration, volume, type) {
+
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+
+    oscillator.type = type;
+    oscillator.frequency.value = notes[note];
+
+    gain.gain.setValueAtTime(0.0001, time);
+
+    gain.gain.exponentialRampToValueAtTime(
+        volume,
+        time + 0.035
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.0001,
+        time + duration
+    );
+
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+
+    oscillator.start(time);
+    oscillator.stop(time + duration + 0.04);
+}
+
+
+function playMelody() {
+
+    const start = audioContext.currentTime + 0.1;
+
+    melody.forEach(([note, position]) => {
+
+        playTone(
+            note,
+            start + position * 0.42,
+            0.72,
+            0.075,
+            "sine"
+        );
+
+    });
+
+    // Acompañamiento suave
+
+    const accompaniment = [
+        ["C4", 0],
+        ["G3", 2],
+        ["C4", 4],
+        ["G3", 6],
+        ["C4", 8],
+        ["G3", 10]
+    ];
+
+    accompaniment.forEach(([note, position]) => {
+
+        playTone(
+            note,
+            start + position * 0.42,
+            1.35,
+            0.025,
+            "triangle"
+        );
+
+    });
+
+}
+
+
+// ACTIVAR MÚSICA
+
+async function startMusic() {
+
+    if (musicPlaying) return;
+
+    if (!audioContext) {
+
+        audioContext = new (
+            window.AudioContext ||
+            window.webkitAudioContext
+        )();
+
+    }
+
+    if (audioContext.state === "suspended") {
+        await audioContext.resume();
+    }
+
+    musicPlaying = true;
+
+    playMelody();
+
+    musicTimer = setInterval(
+        playMelody,
+        5900
+    );
+
+    document.getElementById("musicBtn").textContent =
+        "Ⅱ Pausar melodía";
+
+    document.getElementById("musicNote").textContent =
+        "Una melodía para acompañar tu sorpresa.";
+
+}
+
+
+// PAUSAR Y REANUDAR
+
+document.getElementById("musicBtn")
+.addEventListener("click", async function() {
+
+    if (!musicPlaying) {
+
+        await startMusic();
+
+    } else {
+
+        clearInterval(musicTimer);
+
+        musicTimer = null;
+        musicPlaying = false;
+
+        if (audioContext) {
+            await audioContext.suspend();
+        }
+
+        this.textContent = "♫ Activar melodía";
+
+        document.getElementById("musicNote").textContent =
+            "La melodía está pausada.";
+
+    }
+
+});
+
+</script>
+
+</main>
+</body>
+</html>
